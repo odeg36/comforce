@@ -5,12 +5,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Disciplina
+ * Sede
  *
- * @ORM\Table(name="disciplina")
- * @ORM\Entity(repositoryClass="LogicBundle\Repository\DisciplinaRepository")
+ * @ORM\Table(name="sede")
+ * @ORM\Entity(repositoryClass="LogicBundle\Repository\SedeRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
-class Disciplina
+class Sede
 {
 
     public function __toString()
@@ -28,13 +29,6 @@ class Disciplina
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="codigo", type="integer", unique=true)
-     */
-    private $codigo;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -42,9 +36,9 @@ class Disciplina
     private $nombre;
 
     /**
-     * @ORM\OneToMany(targetEntity="LogicBundle\Entity\Imagen", mappedBy="disciplina",cascade={"all"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="Proceso", mappedBy="sede")
      */
-    private $imagenes;
+    private $procesos;
 
     /**
      * @var \DateTime $fechaCreacion
@@ -61,29 +55,12 @@ class Disciplina
      * @ORM\Column(name="fecha_actualizacion", type="date")
      */
     protected $fechaActualizacion;
-
-    /**
-     * Add imagene
-     *
-     * @param \LogicBundle\Entity\Imagen $imagene
-     *
-     * @return Disciplina
-     */
-    public function addImagene(\LogicBundle\Entity\Imagen $imagene)
-    {
-        $imagene->setDisciplina($this);
-        $this->imagenes[] = $imagene;
-
-        return $this;
-    }
-    //**** FIN MODIFICACIONES ***//
-
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->procesos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -97,35 +74,11 @@ class Disciplina
     }
 
     /**
-     * Set codigo
-     *
-     * @param integer $codigo
-     *
-     * @return Disciplina
-     */
-    public function setCodigo($codigo)
-    {
-        $this->codigo = $codigo;
-
-        return $this;
-    }
-
-    /**
-     * Get codigo
-     *
-     * @return integer
-     */
-    public function getCodigo()
-    {
-        return $this->codigo;
-    }
-
-    /**
      * Set nombre
      *
      * @param string $nombre
      *
-     * @return Disciplina
+     * @return Sede
      */
     public function setNombre($nombre)
     {
@@ -149,7 +102,7 @@ class Disciplina
      *
      * @param \DateTime $fechaCreacion
      *
-     * @return Disciplina
+     * @return Sede
      */
     public function setFechaCreacion($fechaCreacion)
     {
@@ -173,7 +126,7 @@ class Disciplina
      *
      * @param \DateTime $fechaActualizacion
      *
-     * @return Disciplina
+     * @return Sede
      */
     public function setFechaActualizacion($fechaActualizacion)
     {
@@ -193,22 +146,36 @@ class Disciplina
     }
 
     /**
-     * Remove imagene
+     * Add proceso
      *
-     * @param \LogicBundle\Entity\Imagen $imagene
+     * @param \LogicBundle\Entity\Proceso $proceso
+     *
+     * @return Sede
      */
-    public function removeImagene(\LogicBundle\Entity\Imagen $imagene)
+    public function addProceso(\LogicBundle\Entity\Proceso $proceso)
     {
-        $this->imagenes->removeElement($imagene);
+        $this->procesos[] = $proceso;
+
+        return $this;
     }
 
     /**
-     * Get imagenes
+     * Remove proceso
+     *
+     * @param \LogicBundle\Entity\Proceso $proceso
+     */
+    public function removeProceso(\LogicBundle\Entity\Proceso $proceso)
+    {
+        $this->procesos->removeElement($proceso);
+    }
+
+    /**
+     * Get procesos
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getImagenes()
+    public function getProcesos()
     {
-        return $this->imagenes;
+        return $this->procesos;
     }
 }
