@@ -26,14 +26,18 @@ class UsuarioAdmin extends AbstractAdmin
     {
         $datagridMapper
             ->add('firstname', null, [
+                'label' => 'campo.nombres'
             ])
             ->add('lastname', null, [
+                'label' => 'campo.apellidos'
             ])
             ->add('email', null, [
             ])
             ->add('enabled', null, [
+                'label' => 'campo.habilitado'
             ])
             ->add('groups', null, [
+                'label' => 'campo.grupos'
             ])
         ;
     }
@@ -45,8 +49,10 @@ class UsuarioAdmin extends AbstractAdmin
     {
         $listMapper
             ->add('firstname', null, [
+                'label' => 'campo.nombres'
             ])
             ->add('lastname', null, [
+                'label' => 'campo.apellidos'
             ])
             ->add('email', null, [
             ])
@@ -55,20 +61,24 @@ class UsuarioAdmin extends AbstractAdmin
             $listMapper
                 ->add('enabled', null, [
                     'editable' => true,
+                    'label' => 'campo.habilitado'
                 ])
                 ->add('groups', null, [
+                    'label' => 'campo.grupos'
                 ])
             ;
         }
         if ($this->isGranted('ROLE_ALLOWED_TO_SWITCH')) {
             $listMapper
                 ->add('impersonating', 'string', [
+                    'label' => 'campo.personificar',
                     'template' => 'SonataUserBundle:Admin:Field/impersonating.html.twig'
                 ])
             ;
         }
         $listMapper
             ->add('_action', null, array(
+                'label' => 'titulo.acciones',
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),
@@ -84,16 +94,16 @@ class UsuarioAdmin extends AbstractAdmin
     {
         // define group zoning
         $formMapper
-            ->tab('User')
-            ->with('Profile', array('class' => 'col-md-6'))->end()
-            ->with('General', array('class' => 'col-md-6'))->end()
-            ->with('Social', array('class' => 'col-md-6'))->end()
+            ->tab('User', ['label' => 'titulo.usuario'])
+            ->with('Profile', array('class' => 'col-md-6', 'label' => 'titulo.perfil'))->end()
+            ->with('General', array('class' => 'col-md-6', 'label' => 'titulo.general'))->end()
+            ->with('Social', array('class' => 'col-md-6', 'label' => 'titulo.redes_sociales'))->end()
             ->end()
-            ->tab('Security')
-            ->with('Status', array('class' => 'col-md-4'))->end()
-            ->with('Groups', array('class' => 'col-md-4'))->end()
-            ->with('Keys', array('class' => 'col-md-4'))->end()
-            ->with('Roles', array('class' => 'col-md-12'))->end()
+            ->tab('Security', ['label' => 'campo.seguridad'])
+            ->with('Status', array('class' => 'col-md-4', 'label' => 'titulo.estado'))->end()
+            ->with('Groups', array('class' => 'col-md-4', 'label' => 'titulo.grupos'))->end()
+            ->with('Keys', array('class' => 'col-md-4', 'label' => 'titulo.llaves'))->end()
+            ->with('Roles', array('class' => 'col-md-12', 'label' => 'titulo.roles'))->end()
             ->end()
         ;
 
@@ -123,10 +133,13 @@ class UsuarioAdmin extends AbstractAdmin
         $formMapper
             ->tab('User')
             ->with('General')
-            ->add('username')
+            ->add('username', null, [
+                'label' => 'campo.username'
+            ])
             ->add('email')
             ->add('plainPassword', $textType, array(
                 'required' => (!$this->getSubject() || is_null($this->getSubject()->getId())),
+                'label' => 'campo.contrasena'
             ))
             ->end()
             ->with('Profile')
@@ -135,34 +148,51 @@ class UsuarioAdmin extends AbstractAdmin
                 'dp_min_date' => '1-1-1900',
                 'dp_max_date' => $now->format('c'),
                 'required' => false,
+                'label' => 'campo.fecha_nacimiento'
             ))
-            ->add('firstname', null, array('required' => false))
-            ->add('lastname', null, array('required' => false))
-            ->add('website', $urlType, array('required' => false))
-            ->add('biography', $textType, array('required' => false))
+            ->add('firstname', null, array('required' => false,
+                'label' => 'campo.nombres'))
+            ->add('lastname', null, array('required' => false,
+                'label' => 'campo.apellidos'))
+            ->add('website', $urlType, array('required' => false,
+                'label' => 'campo.sitio_web'))
+            ->add('biography', $textType, array('required' => false,
+                'label' => 'campo.biografia'))
             ->add('gender', $userGenderType, array(
                 'required' => true,
+                'label' => 'campo.genero',
                 'translation_domain' => $this->getTranslationDomain(),
             ))
-            ->add('locale', $localeType, array('required' => false))
-            ->add('timezone', $timezoneType, array('required' => false))
-            ->add('phone', null, array('required' => false))
+            ->add('locale', $localeType, array('required' => false,
+                'label' => 'campo.ubicacion'))
+            ->add('timezone', $timezoneType, array('required' => false,
+                'label' => 'campo.zona_horaria'))
+            ->add('phone', null, array('required' => false,
+                'label' => 'campo.telefono'))
             ->end()
             ->with('Social')
-            ->add('facebookUid', null, array('required' => false))
-            ->add('facebookName', null, array('required' => false))
-            ->add('twitterUid', null, array('required' => false))
-            ->add('twitterName', null, array('required' => false))
-            ->add('gplusUid', null, array('required' => false))
-            ->add('gplusName', null, array('required' => false))
+            ->add('facebookUid', null, array('required' => false,
+                'label' => 'campo.facebook_id'))
+            ->add('facebookName', null, array('required' => false,
+                'label' => 'campo.facebook_nombre'))
+            ->add('twitterUid', null, array('required' => false,
+                'label' => 'campo.twitter_id'))
+            ->add('twitterName', null, array('required' => false,
+                'label' => 'campo.twitter_nombre'))
+            ->add('gplusUid', null, array('required' => false,
+                'label' => 'campo.google_id'))
+            ->add('gplusName', null, array('required' => false,
+                'label' => 'campo.google_nombre'))
             ->end()
             ->end()
             ->tab('Security')
             ->with('Status')
-            ->add('enabled', null, array('required' => false))
+            ->add('enabled', null, array('required' => false,
+                'label' => 'campo.habilitado'))
             ->end()
             ->with('Groups')
             ->add('groups', $modelType, array(
+                'label' => 'campo.grupos',
                 'required' => false,
                 'expanded' => true,
                 'multiple' => true,
@@ -170,15 +200,17 @@ class UsuarioAdmin extends AbstractAdmin
             ->end()
             ->with('Roles')
             ->add('realRoles', $securityRolesType, array(
-                'label' => 'form.label_roles',
+                'label' => 'campo.roles',
                 'expanded' => true,
                 'multiple' => true,
                 'required' => false,
             ))
             ->end()
             ->with('Keys')
-            ->add('token', null, array('required' => false))
-            ->add('twoStepVerificationCode', null, array('required' => false))
+            ->add('token', null, array('required' => false,
+                'label' => 'campo.token',))
+            ->add('twoStepVerificationCode', null, array('required' => false,
+                'label' => 'campo.codigo_verificacion_dos_pasos',))
             ->end()
             ->end()
         ;

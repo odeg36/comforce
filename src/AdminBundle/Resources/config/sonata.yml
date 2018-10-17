@@ -6,6 +6,9 @@ sonata_block:
         sonata.admin.block.search_result:
             contexts: [admin]
 sonata_user:
+    class:
+        user: Application\Sonata\UserBundle\Entity\User
+        group: Application\Sonata\UserBundle\Entity\Group
     security_acl: false
     manager_type: orm # can be orm or mongodb
 
@@ -14,14 +17,12 @@ sonata_admin:
         html5_validate:       false
     templates:
         layout:                AdminBundle::standard_layout.html.twig
-        knp_menu_template:     AdminBundle:Menu:sonata_menu.html.twig
-        list:                  AdminBundle:CRUD:list.html.twig
 
     dashboard:
         groups:
             sonata_user:
                 roles: [ROLE_SUPER_ADMIN]
-                label: 'User manage'
+                label: 'Manejo de usuarios'
                 icon:   '<i class="fa fa-lock"></i>'
             admin:
                 roles: [ROLE_SUPER_ADMIN]

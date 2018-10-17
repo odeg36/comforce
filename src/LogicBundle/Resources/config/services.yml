@@ -1,4 +1,11 @@
 services:
-#    logic.example:
-#        class: LogicBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    LogicBundle\EventListener\ProcesoListener:
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            
+    comforce.cambio_a_dolares:
+        class: AdminBundle\Twig\CambioADolares
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }        

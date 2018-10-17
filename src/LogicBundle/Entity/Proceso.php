@@ -3,19 +3,21 @@ namespace LogicBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Proceso
  *
  * @ORM\Table(name="proceso")
  * @ORM\Entity(repositoryClass="LogicBundle\Repository\ProcesoRepository")
+ * @UniqueEntity("numeroProceso")
  */
 class Proceso
 {
 
     public function __toString()
     {
-        return $this->id ? $this->id : '';
+        return $this->numeroProceso ? (string) $this->numeroProceso : '';
     }
 
     /**
@@ -37,16 +39,16 @@ class Proceso
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="string", length=2000)
+     * @ORM\Column(name="descripcion", type="string", length=200)
      */
     private $descripcion;
 
     /**
-     * @var integer
+     * @var float
      *
-     * @ORM\Column(name="presupuesto", type="integer")
+     * @ORM\Column(type="float",  nullable=true)
      */
-    private $presupuesto;
+    private $presupuesto = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="Sede", inversedBy="procesos");

@@ -3,12 +3,14 @@ namespace LogicBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Sede
  *
  * @ORM\Table(name="sede")
  * @ORM\Entity(repositoryClass="LogicBundle\Repository\SedeRepository")
+ * @UniqueEntity("nombre")
  * @ORM\HasLifecycleCallbacks()
  */
 class Sede
@@ -31,7 +33,7 @@ class Sede
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="nombre", type="string", length=255, unique=true)
      */
     private $nombre;
 

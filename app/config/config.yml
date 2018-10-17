@@ -6,9 +6,8 @@ imports:
     - { resource: doctrine_extensions.yml }
     - { resource: "@LogicBundle/Resources/config/config.yml" }
     - { resource: "@AdminBundle/Resources/config/config.yml" }
-    - { resource: "@ServicesBundle/Resources/config/config.yml" }
 parameters:
-    locale: en
+    locale: es
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 framework:
@@ -36,6 +35,8 @@ framework:
 
 # Twig Configuration
 twig:
+    form_themes:
+        - '@SonataCore/Form/datepicker.html.twig'
     globals:
         kernelRootDir: %kernel.root_dir%
     debug:            "%kernel.debug%"

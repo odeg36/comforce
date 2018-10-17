@@ -7,16 +7,17 @@ services:
         class: AdminBundle\Admin\UsuarioAdmin
         arguments: [~, Application\Sonata\UserBundle\Entity\User, AdminBundle:UsuarioAdmin]
         tags:
-            - {name: sonata.admin,manager_type: orm, group: listas ,label: titulo.usuarios }
-
-    admin.admin.disciplina:
-        class: AdminBundle\Admin\DisciplinaAdmin
-        arguments: [~, LogicBundle\Entity\Disciplina, AdminBundle:DisciplinaAdmin]
+            - {name: sonata.admin,manager_type: orm, group: sonata_user ,label: titulo.usuarios }
+    
+    admin.admin.proceso:
+        class: AdminBundle\Admin\ProcesoAdmin
+        arguments: [~, LogicBundle\Entity\Proceso, AdminBundle:ProcesoAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Disciplina }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: titulo.procesos }
 
-    admin.admin.imagen:
-        class: AdminBundle\Admin\ImagenAdmin
-        arguments: [~, LogicBundle\Entity\Imagen, AdminBundle:ImagenAdmin]
+    admin.admin.sede:
+        class: AdminBundle\Admin\SedeAdmin
+        arguments: [~, LogicBundle\Entity\Sede, AdminBundle:SedeAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: admin, label: Imagen }
+            - { name: sonata.admin, manager_type: orm, group: admin, label: titulo.sedes }
+        public: true
