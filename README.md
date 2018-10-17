@@ -1,4 +1,4 @@
-symfony3
+symfony
 ========
 
-A Symfony project created on June 5, 2017, 4:43 pm.
+Proyecto creado como resultado de la prueba para la empresa Comforce
