@@ -1,0 +1,4 @@
+services:
+#    logic.example:
+#        class: LogicBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@LogicBundle/Resources/config/services.yml" }

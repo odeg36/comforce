@@ -1,0 +1,74 @@
+titulo:
+    ingresar: Ingresar
+    regresar inicio: Regresar
+    solicitud contrasena: Solicitud exitosa
+    reestablecer contrasena: Reestablecer contraseña
+    
+menu publico:
+    sistema informacion: Sistema de Información
+    el instituto: El instituto
+    sala de prensa: Sala de prensa
+    atencion ciudadana: Atención ciudadana
+    observatorio: Observatorio
+
+formulario:
+    codigo: Código
+    login:
+        registrarse: Registrarse
+    reestablecer contrasena:
+        campo:
+            usuario: Nombre de usuario
+        error:
+            usuario_invalido: El usuario "%username%" no existe.
+
+boton:
+    enviar: Enviar
+
+###########  Texto "List" Bradcrumb Sonata  #################
+Accion List: Lista de acciones
+Atributo Disciplina List: Lista de atributos de disciplina
+Banner Sim List: Lista de banners
+Bonificacion Juzgamiento List: Lista de bonificaciones de juzgamiento
+Caracterizacion Usuario List: Lista de caracterizaciones de usuario
+Categoria Disciplina List: Lista de categorias de disciplinas
+Categoria Evento List: Lista de categorias de evento
+Categoria Rama List: Lista de categorias de ramas
+Disciplina List: Lista de disciplinas
+Escenario Deportivo List: Lista de escenarios deportivos
+Establecimiento Educativo List: Lista de establecimientos educativos
+Estado Contrato List: Lista de estados de contrato
+Etnia List: Lista de etnias
+Festivo List: Lista de festivos
+Fuente Financiacion List: Lista de fuentes de financiación
+Indicador List: Lista de indicadores
+Item Desempate List: Lista de items de desempate
+Justificacion Partido List: Lista de justificaciones de partidos
+Justificacion W List: Lista de justificaciones por W
+Matriz Programacion List: Lista de matrices de programación
+Modalidad Evento List: Lista de modalidades de eventos
+Motivo Reseva List: Lista de motivos de reserva
+Observacion Escenario List: Lista de observaciones de escenarios
+Oferta List: Lista de ofertas
+Programa List: Lista de programas
+Proyecto List: Lista de proyectos
+Punto Atencion List: Lista de puntos de atención
+Rama List: Lista de ramas
+Resolucion List: Lista de resoluciones
+Sancion List: Lista de sanciones
+Sistema Puntaje List: Lista de sistemas de puntaje
+Subcategoria Disciplina List: Lista de subcategorias de disciplinas
+Terminos Y Condiciones List: Lista de terminos y condiciones
+Terminos Y Condiciones Evento List: Lista de terminos y condiciones de eventos
+Tipo Articulo List: Lista de tipos de articulos
+Tipo Componente List: Lista de tipos de componentes
+Tipo Documento List: Lista de tipos de documentos
+Tipo Escenario List: Lista de tipos de escenarios
+Tipo Evento List: Lista de tipos de eventos
+Tipo Falta List: Lista de tipos de faltas
+Tipo Justificacion List: Lista de tipos de justificacion
+Tipo Puntaje List: Lista de tipos de puntaje
+Tipo Recurso List: Lista de tipos de recursos
+Tipo Relacion List: Lista de tipos de relaciones
+Torneo Base List: Lista de torneos base
+Unidad Medida List: Lista de unidades de medida
+Variable Global List: Lista de variables globales

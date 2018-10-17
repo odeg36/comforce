@@ -1,0 +1,22 @@
+services:
+    admin.login_success_handler:
+        class: AdminBundle\Service\LoginSuccessHandler
+        arguments:  ["@router", "@security.authorization_checker"]
+    
+    sonata.user.admin.user:
+        class: AdminBundle\Admin\UsuarioAdmin
+        arguments: [~, Application\Sonata\UserBundle\Entity\User, AdminBundle:UsuarioAdmin]
+        tags:
+            - {name: sonata.admin,manager_type: orm, group: listas ,label: titulo.usuarios }
+
+    admin.admin.disciplina:
+        class: AdminBundle\Admin\DisciplinaAdmin
+        arguments: [~, LogicBundle\Entity\Disciplina, AdminBundle:DisciplinaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Disciplina }
+
+    admin.admin.imagen:
+        class: AdminBundle\Admin\ImagenAdmin
+        arguments: [~, LogicBundle\Entity\Imagen, AdminBundle:ImagenAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Imagen }

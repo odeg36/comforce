@@ -1,0 +1,6 @@
+LogicBundle\Entity\Disciplina:
+    properties:
+        nombre:
+            - NotNull: ~
+        codigo:
+            - NotNull: ~

@@ -1,0 +1,37 @@
+homepage:
+    path:   /
+    defaults:  { _controller: AdminBundle:Default:index}
+    
+services:
+    resource: "@ServicesBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
+logic:
+    resource: "@LogicBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+inder_admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+    
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
