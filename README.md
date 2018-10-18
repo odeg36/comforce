@@ -19,9 +19,10 @@ Pasos:
     2) Según documentación de Symfony crear y dar permisos de lectura y escritura a las carpetas “var/cache” y “var/logs”
     3) Crear una base de datos con nombre “comforce”
     4) Ejecutar en la raiz del proyecto el comando “composer install” y definir los datos del archivo parameters.ini cuando los pidan.
-    5) Ejecutar en la raiz del proyecto el comando “php bin/console doctrine:fixtures:load” y presionar “y” para aceptar la ejecución  (Este comando creará un usuario administrador y las sedes)
-    6) Ejecutar el proyecto ya sea creando un host virtual o con el comando “php bin/console server:run”
-    7) Ingresar al sistema con
+    5) Ejecutar en la raiz del proyecto el comando “php bin/console doctrine:schema:create”
+    6) Ejecutar en la raiz del proyecto el comando “php bin/console doctrine:fixtures:load” y presionar “y” para aceptar la ejecución  (Este comando creará un usuario administrador y las sedes)
+    7) Ejecutar el proyecto ya sea creando un host virtual o con el comando “php bin/console server:run”
+    8) Ingresar al sistema con
         I. Usuario: admin
         II. Password: admin
 
